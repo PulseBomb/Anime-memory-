@@ -9,7 +9,8 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #ffeef4, #e0f7ff);
+      background: #121212;
+      color: #f0f0f0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -17,9 +18,9 @@
     }
 
     .container {
-      background: #ffe0f0cc;
+      background: #1e1e1e;
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
       padding: 30px;
       max-width: 800px;
       width: 100%;
@@ -44,7 +45,7 @@
     }
 
     .title-box {
-      background: linear-gradient(to right, red, blue);
+      background: linear-gradient(to right, #ff0033, #0066ff);
       color: white;
       padding: 20px 30px;
       font-size: 2em;
@@ -64,6 +65,12 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .download-box:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
     }
 
     .buttons {
