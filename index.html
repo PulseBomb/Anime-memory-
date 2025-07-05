@@ -2,435 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Anime Memory Game - Experience the Magic!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <title>Anime Memory Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root {
-      --primary-color: #ff4081; /* Vibrant Pink */
-      --secondary-color: #e91e63; /* Darker Pink */
-      --accent-color: #82b1ff; /* Light Blue Accent */
-      --text-color: #333;
-      --light-text-color: #f0f0f0;
-      --bg-gradient-start: #ffeaf5;
-      --bg-gradient-end: #e0f7fa;
-    }
-
     body {
-      background: linear-gradient(to bottom right, var(--bg-gradient-start), var(--bg-gradient-end));
-      font-family: 'Open Sans', sans-serif; /* Body text font */
-      color: var(--text-color);
-      line-height: 1.6;
       margin: 0;
-      padding: 0;
-      overflow-x: hidden; /* Prevent horizontal scroll */
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffeef4, #e0f7ff);
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
     }
 
     .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* --- Hero Section --- */
-    .hero-section {
-      background: url('path/to/your/main_hero_background_image.jpg') no-repeat center center/cover; /* Replace with stunning high-res hero image */
-      height: 70vh; /* Make it tall for visual impact */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: var(--light-text-color);
-      position: relative;
-      overflow: hidden; /* Hide overflow from potential parallax */
-    }
-
-    .hero-section::before { /* Overlay for text readability */
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.4); /* Darker overlay */
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      animation: fadeIn 1.5s ease-out; /* Simple fade-in animation */
-    }
-
-    .hero-content h1 {
-      font-family: 'Montserrat', sans-serif; /* Heading font */
-      font-size: 4.5em;
-      margin-bottom: 15px;
-      text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
-      line-height: 1.1;
-    }
-
-    .hero-content p {
-      font-size: 1.6em;
       max-width: 800px;
-      margin: 0 auto 30px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-    }
-
-    .hero-buttons .btn {
-      padding: 18px 40px;
-      font-size: 1.3em;
-      border-radius: 50px; /* More rounded */
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      background-color: var(--primary-color);
-    }
-
-    .hero-buttons .btn:hover {
-      background-color: var(--secondary-color);
-      transform: translateY(-3px) scale(1.02); /* Slight lift and scale */
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    }
-
-    /* --- General Section Styling --- */
-    .section {
-      padding: 80px 0;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      padding: 30px;
       text-align: center;
     }
 
-    .section h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3em;
-      color: var(--secondary-color);
-      margin-bottom: 50px;
-      position: relative;
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
     }
 
-    .section h2::after { /* Underline effect for titles */
-      content: '';
-      display: block;
-      width: 80px;
-      height: 4px;
-      background-color: var(--primary-color);
-      margin: 15px auto 0;
-      border-radius: 2px;
+    .profile-header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 100%;
+      object-fit: cover;
+      border: 4px solid #ff4081;
     }
 
-    /* --- Game Description Section --- */
-    .description-section {
-      background-color: #fff; /* White background for contrast */
-      padding: 60px 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    .game-title {
+      background: linear-gradient(to right, #ff0000, #0066ff);
+      color: white;
+      padding: 20px 30px;
+      font-size: 2em;
+      font-weight: bold;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    .description-section p {
+    .download-box {
+      background-color: #007bff;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 12px;
+      margin: 30px auto 20px;
       font-size: 1.2em;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    /* --- Features Section --- */
-    .features-section {
-      background-color: #fcfcfc;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for features */
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .feature-item {
-      background-color: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      text-align: left;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .feature-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-
-    .feature-item h3 {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--primary-color);
-      font-size: 1.6em;
-      margin-bottom: 15px;
-    }
-
-    .feature-item p {
-      font-size: 1em;
-      margin: 0;
-      color: #666;
-    }
-
-    /* --- Screenshots Section --- */
-    .screenshots-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Grid for consistent image sizes */
-      gap: 25px;
-      margin-top: 40px;
-    }
-
-    .screenshot-item {
-      background-color: #fff;
-      border-radius: 15px;
-      overflow: hidden; /* Ensure image corners are rounded */
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .screenshot-item:hover {
-      transform: scale(1.03); /* Slightly enlarge on hover */
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-    }
-
-    .screenshot-item img {
-      width: 100%;
-      height: 250px; /* Fixed height for consistent look, adjust as needed */
-      object-fit: cover; /* Crop image to fit without distortion */
-      display: block;
-    }
-
-    /* --- Call to Action Section --- */
-    .cta-section {
-      background-color: var(--primary-color);
-      color: var(--light-text-color);
-      padding: 80px 0;
-    }
-
-    .cta-section h2 {
-      color: var(--light-text-color);
-      margin-bottom: 40px;
-    }
-    .cta-section h2::after {
-        background-color: var(--light-text-color); /* Lighter underline for dark background */
-    }
-
-    .cta-buttons .btn {
-      background-color: var(--light-text-color);
-      color: var(--primary-color);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-    }
-
-    .cta-buttons .btn:hover {
-      background-color: #eee;
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-    }
-
-    /* --- Footer --- */
-    .footer {
-      background-color: #333;
-      color: #aaa;
-      padding: 40px 0;
-      font-size: 0.9em;
-    }
-
-    .footer a {
-      color: var(--accent-color); /* Light blue for footer links */
+      display: inline-block;
       text-decoration: none;
-      margin: 0 15px;
-      transition: color 0.3s ease;
+      transition: 0.3s ease;
     }
 
-    .footer a:hover {
-      color: var(--primary-color);
-      text-decoration: underline;
+    .download-box:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
     }
 
-    /* Keyframe Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    @keyframes slideInUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
+    .extra-buttons {
+      margin-top: 20px;
     }
 
-    /* Apply animations to sections */
-    .section:not(.hero-section) {
-        opacity: 0; /* Hide by default */
-        transform: translateY(50px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .section.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    /* For mobile responsiveness */
-    @media (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 3em;
-      }
-      .hero-content p {
-        font-size: 1.2em;
-      }
-      .hero-buttons .btn {
-        padding: 15px 30px;
-        font-size: 1.1em;
-      }
-      .section h2 {
-        font-size: 2.2em;
-      }
-      .feature-item {
-        padding: 20px;
-      }
-      .screenshot-item img {
-        height: 200px; /* Adjust height for smaller screens */
-      }
+    .extra-buttons a {
+      display: inline-block;
+      background-color: #ff4081;
+      color: white;
+      padding: 12px 24px;
+      margin: 10px 8px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s ease;
     }
 
-    @media (max-width: 480px) {
-      .hero-content h1 {
-        font-size: 2.5em;
-      }
-      .hero-content p {
-        font-size: 1em;
-      }
-      .btn {
-        padding: 12px 25px;
-        font-size: 1em;
+    .extra-buttons a:hover {
+      background-color: #e91e63;
+      transform: scale(1.05);
+    }
+
+    @media(max-width: 600px) {
+      .profile-header {
+        flex-direction: column;
       }
     }
   </style>
 </head>
 <body>
 
-  <section class="hero-section">
-    <div class="hero-content container">
-      <h1>Anime Memory Game</h1>
-      <p>Challenge Your Mind in a Vibrant Anime World!</p>
-      <div class="hero-buttons">
-        <a class="btn" href="https://github.com/PulseBomb/Anime-memory-/releases/download/v1.0.0/com.pulsebomb.animememory_.2_1.0.apk" download>
-          ⬇️ Download Now (APK)
-        </a>
-      </div>
+  <div class="container">
+    <div class="profile-header">
+      <img src="https://i.postimg.cc/XYPq8pYN/file-00000000eb086246ac7216de1aac9b19-1.png" alt="Avatar">
+      <div class="game-title">Anime Memory Game</div>
     </div>
-  </section>
 
-  <section class="description-section section">
-    <div class="container">
-      <h2>Immerse Yourself in Anime Magic</h2>
-      <p>
-        "Anime Memory Game" offers a captivating puzzle experience where beautiful Japanese anime art meets classic memory challenges. Dive into a visually stunning world, designed to sharpen your focus and concentration while providing endless fun. As you progress, the difficulty increases with each level, ensuring a continually evolving and engaging challenge for your brain!
-      </p>
+    <a class="download-box" href="https://github.com/PulseBomb/Anime-memory-/releases/download/v1.0.0/com.pulsebomb.animememory_.2_1.0.apk" download>
+      ⬇️ Download Game
+    </a>
+
+    <div class="extra-buttons">
+      <a href="https://github.com/PulseBomb/Anime-memory-/releases/tag/v1.0.0" target="_blank">📄 Game Info</a>
+      <a href="#">🏆 Leaderboard</a>
+      <a href="#">📧 Contact Us</a>
     </div>
-  </section>
-
-  <section class="features-section section">
-    <div class="container">
-      <h2>Why You'll Love Anime Memory Game</h2>
-      <div class="features-grid">
-        <div class="feature-item">
-          <h3>Stunning Anime Visuals</h3>
-          <p>Explore unique cards and backgrounds, all crafted in a charming, high-quality anime art style that brings the game to life.</p>
-        </div>
-        <div class="feature-item">
-          <h3>Progressive Memory Puzzles</h3>
-          <p>Test your recall with various levels designed to keep your mind stimulated and entertained, offering increasing challenges.</p>
-        </div>
-        <div class="feature-item">
-          <h3>Strategic Hints</h3>
-          <p>Never get stuck! Get a little help when you need it with smart in-game hints that guide you to victory.</p>
-        </div>
-        <div class="feature-item">
-          <h3>Customize Your Experience</h3>
-          <p>Collect coins to unlock awesome anime avatars and unique themes. Personalize your game by setting your name and choosing your avatar.</p>
-        </div>
-        <div class="feature-item">
-          <h3>Global Leaderboards</h3>
-          <p>Compete with players worldwide! Challenge your friends and climb to the top of the Hall of Fame to prove your mastery.</p>
-        </div>
-        <div class="feature-item">
-          <h3>Immersive Audio</h3>
-          <p>Enjoy delightful background music and crisp sound effects that enhance your gameplay, with full volume control options.</p>
-        </div>
-        <div class="feature-item">
-          <h3>Bilingual Support</h3>
-          <p>Play comfortably in both English and Arabic, with full UI translation to ensure a seamless experience for everyone.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="screenshots-section section">
-    <div class="container">
-      <h2>A Glimpse Inside the Game</h2>
-      <div class="screenshots-gallery">
-        <div class="screenshot-item">
-          <img src="https://i.postimg.cc/vDLThzTp/IMG-20250630-160747.png" alt="Anime Memory Game Screenshot 1 - Gameplay">
-        </div>
-        <div class="screenshot-item">
-          <img src="https://i.postimg.cc/PCc5JVV8/IMG-20250630-160810.png" alt="Anime Memory Game Screenshot 2 - In-game screen">
-        </div>
-        <div class="screenshot-item">
-          <img src="https://i.postimg.cc/dLs1xyTD/IMG-20250630-160820.png" alt="Anime Memory Game Screenshot 3 - Gameplay with score">
-        </div>
-        <div class="screenshot-item">
-          <img src="https://i.postimg.cc/zy3fJY7r/IMG-20250630-160829.png" alt="Anime Memory Game Screenshot 4 - Shop or Customization">
-        </div>
-        <div class="screenshot-item">
-          <img src="https://i.postimg.cc/svTXdgpm/IMG-20250630-160936.png" alt="Anime Memory Game Screenshot 5 - Main Menu/Profile">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta-section section">
-    <div class="container cta-buttons">
-      <h2>Ready to Become a Memory Master?</h2>
-      <a class="btn" href="https://github.com/PulseBomb/Anime-memory-/releases/download/v1.0.0/com.pulsebomb.animememory_.2_1.0.apk" download>
-        ⬇️ Download Anime Memory Game Now!
-      </a>
-      <a class="btn" href="https://github.com/PulseBomb/Anime-memory-/releases/tag/v1.0.0" target="_blank" style="background-color: var(--accent-color); color: white;">
-        📄 Learn More on GitHub
-      </a>
-      </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 PulseBomb Studio. All rights reserved.</p>
-      <p>
-        <a href="https://privatepulsebomb.netlify.app/" target="_blank">Privacy Policy</a>
-        <a href="#">Support</a>
-      </p>
-    </div>
-  </footer>
-
-  <script>
-    // Simple Intersection Observer to fade in sections on scroll
-    document.addEventListener("DOMContentLoaded", function() {
-      const sections = document.querySelectorAll('.section:not(.hero-section)');
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1 // Trigger when 10% of the section is visible
-      };
-
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); // Stop observing once visible
-          }
-        });
-      }, observerOptions);
-
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-    });
-  </script>
+  </div>
 
 </body>
 </html>
-b
