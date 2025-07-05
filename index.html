@@ -6,63 +6,189 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background: linear-gradient(to bottom right, #ffeaf5, #e0f7fa);
-      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffeaf5, #e0f7fa); /* Soft pink to light blue gradient */
+      font-family: 'Segoe UI', sans-serif; /* Modern, clean font */
       text-align: center;
-      padding: 80px 20px;
-      color: #444;
+      padding: 50px 20px;
+      color: #444; /* Dark grey for text */
+      line-height: 1.6; /* Improved readability for paragraphs */
     }
 
     h1 {
-      color: #ff4081;
-      font-size: 2.5em;
+      color: #ff4081; /* Vibrant pink for main title */
+      font-size: 3em;
       margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1); /* Subtle text shadow */
+    }
+
+    h2 {
+      color: #e91e63; /* Slightly darker pink for section titles */
+      font-size: 2em;
+      margin-top: 40px;
+      margin-bottom: 20px;
     }
 
     p {
       font-size: 1.2em;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
+      max-width: 800px; /* Limit paragraph width for better readability */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .btn {
       display: inline-block;
-      background-color: #ff4081;
+      background-color: #ff4081; /* Pink button background */
       color: white;
       text-decoration: none;
       padding: 15px 30px;
-      border-radius: 30px;
+      border-radius: 30px; /* Pill-shaped buttons */
       font-size: 1.1em;
       margin: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Soft shadow */
+      transition: all 0.3s ease; /* Smooth transitions for hover effects */
     }
 
     .btn:hover {
-      background-color: #e91e63;
-      transform: scale(1.05);
+      background-color: #e91e63; /* Darker pink on hover */
+      transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+
+    .screenshots-section {
+      margin-top: 50px;
+      display: flex;
+      flex-wrap: wrap; /* Allow images to wrap to next line on smaller screens */
+      justify-content: center; /* Center images horizontally */
+      gap: 25px; /* Space between images */
+      padding: 0 15px;
+    }
+
+    .screenshots-section img {
+      width: 100%;
+      max-width: 350px; /* Maximum width for each screenshot */
+      height: auto;
+      border-radius: 15px; /* Rounded corners for images */
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25); /* More prominent shadow for images */
+      transition: transform 0.3s ease;
+    }
+
+    .screenshots-section img:hover {
+      transform: translateY(-5px); /* Lift effect on hover */
+    }
+
+    .features-list {
+      list-style: none; /* Remove default bullet points */
+      padding: 0;
+      text-align: left;
+      max-width: 700px;
+      margin: 30px auto; /* Center the list */
+    }
+
+    .features-list li {
+      margin-bottom: 15px;
+      font-size: 1.1em;
+      color: #555;
+      position: relative;
+      padding-left: 30px; /* Space for custom bullet */
+    }
+
+    .features-list li::before {
+      content: '✔'; /* Custom checkmark bullet */
+      color: #4CAF50; /* Green checkmark */
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
 
     .footer {
-      margin-top: 50px;
+      margin-top: 60px;
       font-size: 0.9em;
-      color: #888;
+      color: #888; /* Lighter grey for footer text */
+    }
+
+    .footer a {
+      color: #ff4081; /* Pink links in footer */
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2em;
+      }
+      h2 {
+        font-size: 1.7em;
+      }
+      p {
+        font-size: 1em;
+      }
+      .btn {
+        padding: 12px 25px;
+        font-size: 1em;
+      }
+      .screenshots-section img {
+        max-width: 90%; /* Make images slightly larger on mobile */
+      }
+      .features-list {
+        padding: 0 15px;
+      }
     }
   </style>
 </head>
 <body>
   <h1>🎮 Anime Memory Game</h1>
-  <p>Challenge your mind with a cute and vibrant anime memory puzzle!</p>
+  <p>Challenge your mind in a vibrant anime world!</p>
 
+  <p style="font-size: 1.1em; line-height: 1.8;">
+    "Anime Memory Game" offers a captivating puzzle experience where beautiful Japanese anime art meets classic memory challenges. Dive into a visually stunning world, designed to sharpen your focus and concentration while providing endless fun. As you progress, the difficulty increases with each level, ensuring a continually evolving and engaging challenge for your brain!
+  </p>
+
+  ---
+
+  <h2>See the Game in Action!</h2>
+  <div class="screenshots-section">
+    <img src="https://i.postimg.cc/vDLThzTp/IMG-20250630-160747.png" alt="Anime Memory Game Screenshot 1 - Gameplay">
+    <img src="https://i.postimg.cc/PCc5JVV8/IMG-20250630-160810.png" alt="Anime Memory Game Screenshot 2 - In-game screen">
+    <img src="https://i.postimg.cc/dLs1xyTD/IMG-20250630-160820.png" alt="Anime Memory Game Screenshot 3 - Gameplay with score">
+    <img src="https://i.postimg.cc/zy3fJY7r/IMG-20250630-160829.png" alt="Anime Memory Game Screenshot 4 - Shop or Customization">
+    <img src="https://i.postimg.cc/svTXdgpm/IMG-20250630-160936.png" alt="Anime Memory Game Screenshot 5 - Main Menu/Profile">
+  </div>
+
+  ---
+
+  <h2>Why You'll Love Anime Memory Game:</h2>
+  <ul class="features-list">
+    <li>**Stunning Anime Visuals:** Explore unique cards and backgrounds, all crafted in a charming, high-quality anime art style.</li>
+    <li>**Progressive Memory Puzzles:** Test your recall with various levels designed to keep your mind stimulated and entertained.</li>
+    <li>**Strategic Hints:** Get a little help when you need it with smart in-game hints.</li>
+    <li>**Customize Your Experience:** Collect coins to unlock awesome anime avatars and unique themes; set your name and choose your avatar to make the game truly yours.</li>
+    <li>**Global Leaderboards:** Compete with players worldwide and climb to the top of the Hall of Fame!</li>
+    <li>**Immersive Audio:** Enjoy delightful background music and sound effects, with full volume control.</li>
+    <li>**Bilingual Support:** Play comfortably in both English and Arabic, with full UI translation.</li>
+  </ul>
+
+  ---
+
+  <h2>Get the Game Now!</h2>
   <a class="btn" href="https://github.com/PulseBomb/Anime-memory-/releases/download/v1.0.0/com.pulsebomb.animememory_.2_1.0.apk" download>
     ⬇️ Direct Download (APK)
   </a>
 
   <a class="btn" href="https://github.com/PulseBomb/Anime-memory-/releases/tag/v1.0.0" target="_blank">
-    📄 Game Info Page
+    📄 Game Info Page (GitHub)
   </a>
 
   <div class="footer">
-    &copy; 2025 PulseBomb Studio. All rights reserved.
+    <p>&copy; 2025 PulseBomb Studio. All rights reserved.</p>
+    <p>
+      <a href="https://privatepulsebomb.netlify.app/" target="_blank">Privacy Policy</a>
+      </p>
   </div>
 </body>
 </html>
